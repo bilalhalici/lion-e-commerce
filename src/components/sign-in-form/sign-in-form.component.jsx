@@ -2,13 +2,12 @@ import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
-import { ToastContainer, toast } from 'react-toastify';
 
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.util';
+import { toast } from 'react-toastify';
 
 import './sign-in-form.styles.scss';
 
@@ -28,7 +27,7 @@ const SignInForm = () => {
   const signInWithGoogle = async () => {
     try {
       const { user } = await signInWithGooglePopup();
-      await createUserDocumentFromAuth(user);
+      toast.success(`Welcome ${user.displayName}`);
     } catch (error) {
       if (error.code === 'auth/popup-closed-by-user') {
         toast.error("Please complete the sign-in process.");
@@ -42,11 +41,10 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
       resetFormFields();
       toast.success(`Welcome back`);
     } catch (error) {
@@ -96,7 +94,6 @@ const SignInForm = () => {
           <Button type='button' buttonType='google' onClick={signInWithGoogle}>
             Google sign in
           </Button>
-          <ToastContainer />
         </div>
       </form>
     </div>

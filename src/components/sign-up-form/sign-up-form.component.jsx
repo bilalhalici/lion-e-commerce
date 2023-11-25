@@ -1,16 +1,15 @@
 import { useState } from "react";
 
-import { ToastContainer, toast } from 'react-toastify';
-
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth
 } from '../../utils/firebase/firebase.util';
-import FormInput from "../form-input/form-input.component";
+import { toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
-import "./sign-up-form.styles.scss";
+import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -34,7 +33,10 @@ const SignUpForm = () => {
     }
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
       toast.success("User created successfully");
@@ -90,7 +92,6 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
         <Button type="submit">Sign Up</Button>
-        <ToastContainer />
       </form>
     </div>
   );
