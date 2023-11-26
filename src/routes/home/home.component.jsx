@@ -27,7 +27,7 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div style={{ width: '100%', }}>
       <Directory categories={categories} />
     </div>
   );
