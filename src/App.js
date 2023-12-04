@@ -6,11 +6,11 @@ import Shop from "./routes/shop/shop.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Checkout from "./routes/checkout/checkout.component";
 
-import "./App.styles.scss";
+import {AppContainer} from "./App.styles.jsx";
 
 const App = () => {
   return (
-    <div className="page-container">
+    <AppContainer>
       <Routes>
         <Route path="/" element={<Navigation />} >
           <Route index element={<Home />} />
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="*" element={<h1>Page not found</h1>} />
         </Route>
       </Routes>
-    </div>
+    </AppContainer>
   );
 };
 
