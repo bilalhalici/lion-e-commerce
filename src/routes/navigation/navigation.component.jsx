@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { signOutUser } from "../../utils/firebase/firebase.util";
-import { ToastContainer, toast } from 'react-toastify';
+import { signOutStart } from "../../store/user/user.action";
 import { ReactComponent as Lion } from "../../assets/lion.svg";
 
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
@@ -18,16 +17,13 @@ import {
   NavLinks,
   NavLink,
 } from "./navigation.styles.jsx";
-import 'react-toastify/dist/ReactToastify.css';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    toast.info("Signed out successfully");
-  };
+  const signOutUser = () => dispatch(signOutStart());
 
   return (
     <Fragment>
@@ -40,7 +36,7 @@ const Navigation = () => {
             SHOP
           </NavLink>
           {currentUser ? (
-            <NavLink as='span' onClick={signOutHandler}>
+            <NavLink as='span' onClick={signOutUser}>
               SIGN OUT
             </NavLink>
           ) : (
@@ -55,10 +51,6 @@ const Navigation = () => {
         }
       </NavigationContainer>
       <Outlet />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={3000}
-      />
     </Fragment>
   );
 };
