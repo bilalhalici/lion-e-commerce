@@ -20,12 +20,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCFZQEFnKvYLNXYpOsZT5qo8XzEj5myx7k",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "lion-ecommerce.firebaseapp.com",
   projectId: "lion-ecommerce",
   storageBucket: "lion-ecommerce.appspot.com",
-  messagingSenderId: "956745560798",
-  appId: "1:956745560798:web:cabfd4b3ce4bc0730b084f",
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
