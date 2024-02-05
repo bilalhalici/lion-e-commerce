@@ -1,1 +1,1 @@
-importScripts("https://push.hellosmpl.com/smpl-script.js");
+importScripts("https://d1swsg5cwajyxv.cloudfront.net/smpl-notification-sw.js");
