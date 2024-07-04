@@ -1,2 +1,2 @@
 // eslint-disable-next-line no-undef
-importScripts("https://d1swsg5cwajyxv.cloudfront.net/smpl-notification-sw.js");
+importScripts("https://push.hellosmpl.com/smpl-notification-sw.js");
