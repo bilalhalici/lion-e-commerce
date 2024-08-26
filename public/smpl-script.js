@@ -1,6 +1,3 @@
-store.setItem("smpl_notification_api", "https://e37zu5n931.execute-api.eu-north-1.amazonaws.com");
-store.setItem("smpl_notification_apiKey", "ShrxkVSuF06G28tXWdGxBawowEbQyXHS81eTRYln");
-
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
