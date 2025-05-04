@@ -70,7 +70,7 @@
       data-cookie-consent="tracking"
       async
      >
-      "use strict";
+     "use strict";
 var Ln = function (e, t) {
     if (Array.isArray(e)) return e;
     if (Symbol.iterator in Object(e))
@@ -420,9 +420,9 @@ function Un(e, t, n) {
         I[m] = function () {
           return this;
         };
-        var C = Object.getPrototypeOf,
-          R = C && C(C(c([])));
-        R && R !== f && v.call(R, m) && (I = R);
+        var R = Object.getPrototypeOf,
+          C = R && R(R(c([])));
+        C && C !== f && v.call(C, m) && (I = C);
         var j = (t.prototype = p.prototype = Object.create(I));
         (n.prototype = j.constructor = t),
           (t.constructor = n),
@@ -955,7 +955,7 @@ function Un(e, t, n) {
             function u(e) {
               var t = j[e.name],
                 n = {};
-              (n.promise = new C(function (e, t) {
+              (n.promise = new R(function (e, t) {
                 (n.resolve = e), (n.reject = t);
               })),
                 t.deferredOperations.push(n),
@@ -974,7 +974,7 @@ function Un(e, t, n) {
               if (n) return n.reject(t), n.promise;
             }
             function n(o, i) {
-              return new C(function (t, n) {
+              return new R(function (t, n) {
                 if (
                   ((j[o.name] = j[o.name] || {
                     forages: [],
@@ -995,7 +995,7 @@ function Un(e, t, n) {
                     var t = r.result;
                     try {
                       t.createObjectStore(o.storeName),
-                        e.oldVersion <= 1 && t.createObjectStore(R);
+                        e.oldVersion <= 1 && t.createObjectStore(C);
                     } catch (t) {
                       if ("ConstraintError" !== t.name) throw t;
                       console.warn(
@@ -1096,7 +1096,7 @@ function Un(e, t, n) {
                     "InvalidStateError" === o.name ||
                     "NotFoundError" === o.name)
                 )
-                  return C.resolve()
+                  return R.resolve()
                     .then(function () {
                       if (
                         !e.db ||
@@ -1263,8 +1263,8 @@ function Un(e, t, n) {
                 } catch (e) {}
               })();
             "undefined" == typeof Promise && e(3);
-            var C = Promise,
-              R = "local-forage-detect-blob-support",
+            var R = Promise,
+              C = "local-forage-detect-blob-support",
               o = void 0,
               j = {},
               N = Object.prototype.toString,
@@ -1274,7 +1274,7 @@ function Un(e, t, n) {
                 _driver: "asyncStorage",
                 _initStorage: function (e) {
                   function t() {
-                    return C.resolve();
+                    return R.resolve();
                   }
                   var r = this,
                     o = { db: null };
@@ -1293,7 +1293,7 @@ function Un(e, t, n) {
                   for (var a, u = [], c = 0; c < i.forages.length; c++)
                     (a = i.forages[c]) !== r && u.push(a._initReady().catch(t));
                   var s = i.forages.slice(0);
-                  return C.all(u)
+                  return R.all(u)
                     .then(function () {
                       return (o.db = i.db), h(o);
                     })
@@ -1332,7 +1332,7 @@ function Un(e, t, n) {
                 })(),
                 iterate: function (a, e) {
                   var u = this,
-                    t = new C(function (i, n) {
+                    t = new R(function (i, n) {
                       u.ready()
                         .then(function () {
                           b(u._dbInfo, T, function (e, t) {
@@ -1366,7 +1366,7 @@ function Un(e, t, n) {
                 getItem: function (i, e) {
                   var a = this;
                   i = p(i);
-                  var t = new C(function (r, o) {
+                  var t = new R(function (r, o) {
                     a.ready()
                       .then(function () {
                         b(a._dbInfo, T, function (e, t) {
@@ -1394,7 +1394,7 @@ function Un(e, t, n) {
                 setItem: function (u, n, e) {
                   var c = this;
                   u = p(u);
-                  var t = new C(function (i, a) {
+                  var t = new R(function (i, a) {
                     var t;
                     c.ready()
                       .then(function () {
@@ -1403,12 +1403,12 @@ function Un(e, t, n) {
                           "[object Blob]" === N.call(n)
                             ? ((e = t.db),
                               "boolean" == typeof o
-                                ? C.resolve(o)
+                                ? R.resolve(o)
                                 : ((r = e),
-                                  new C(function (n) {
-                                    var e = r.transaction(R, A),
+                                  new R(function (n) {
+                                    var e = r.transaction(C, A),
                                       t = s([""]);
-                                    e.objectStore(R).put(t, "key"),
+                                    e.objectStore(C).put(t, "key"),
                                       (e.onabort = function (e) {
                                         e.preventDefault(),
                                           e.stopPropagation(),
@@ -1431,7 +1431,7 @@ function Un(e, t, n) {
                                 return e
                                   ? n
                                   : ((r = n),
-                                    new C(function (n, e) {
+                                    new R(function (n, e) {
                                       var t = new FileReader();
                                       (t.onerror = e),
                                         (t.onloadend = function (e) {
@@ -1479,7 +1479,7 @@ function Un(e, t, n) {
                 removeItem: function (i, e) {
                   var a = this;
                   i = p(i);
-                  var t = new C(function (r, o) {
+                  var t = new R(function (r, o) {
                     a.ready()
                       .then(function () {
                         b(a._dbInfo, A, function (e, t) {
@@ -1509,7 +1509,7 @@ function Un(e, t, n) {
                 },
                 clear: function (e) {
                   var i = this,
-                    t = new C(function (r, o) {
+                    t = new R(function (r, o) {
                       i.ready()
                         .then(function () {
                           b(i._dbInfo, A, function (e, t) {
@@ -1539,7 +1539,7 @@ function Un(e, t, n) {
                 },
                 length: function (e) {
                   var i = this,
-                    t = new C(function (r, o) {
+                    t = new R(function (r, o) {
                       i.ready()
                         .then(function () {
                           b(i._dbInfo, T, function (e, t) {
@@ -1565,7 +1565,7 @@ function Un(e, t, n) {
                 },
                 key: function (u, e) {
                   var c = this,
-                    t = new C(function (i, a) {
+                    t = new R(function (i, a) {
                       return u < 0
                         ? void i(null)
                         : void c
@@ -1601,7 +1601,7 @@ function Un(e, t, n) {
                 },
                 keys: function (e) {
                   var a = this,
-                    t = new C(function (o, i) {
+                    t = new R(function (o, i) {
                       a.ready()
                         .then(function () {
                           b(a._dbInfo, T, function (e, t) {
@@ -1641,7 +1641,7 @@ function Un(e, t, n) {
                   ) {
                     var r =
                       a.name === n.name && this._dbInfo.db
-                        ? C.resolve(this._dbInfo.db)
+                        ? R.resolve(this._dbInfo.db)
                         : h(a).then(function (e) {
                             var t = j[a.name],
                               n = t.forages;
@@ -1661,7 +1661,7 @@ function Un(e, t, n) {
                             for (var t, n = 0; n < i.length; n++)
                               ((t = i[n])._dbInfo.db = null),
                                 (t._dbInfo.version = o);
-                            return new C(function (t, n) {
+                            return new R(function (t, n) {
                               var r = I.open(a.name, o);
                               (r.onerror = function (e) {
                                 r.result.close(), n(e);
@@ -1681,7 +1681,7 @@ function Un(e, t, n) {
                               })
                               .catch(function (e) {
                                 throw (
-                                  ((d(a, e) || C.resolve()).catch(
+                                  ((d(a, e) || R.resolve()).catch(
                                     function () {}
                                   ),
                                   e)
@@ -1696,7 +1696,7 @@ function Un(e, t, n) {
                           e.close();
                           for (var t = 0; t < r.length; t++)
                             r[t]._dbInfo.db = null;
-                          return new C(function (t, n) {
+                          return new R(function (t, n) {
                             var r = I.deleteDatabase(a.name);
                             (r.onerror = function () {
                               var e = r.result;
@@ -1721,12 +1721,12 @@ function Un(e, t, n) {
                             })
                             .catch(function (e) {
                               throw (
-                                ((d(a, e) || C.resolve()).catch(function () {}),
+                                ((d(a, e) || R.resolve()).catch(function () {}),
                                 e)
                               );
                             });
                         });
-                  } else t = C.reject("Invalid arguments");
+                  } else t = R.reject("Invalid arguments");
                   return l(t, e), t;
                 },
               },
@@ -1841,7 +1841,7 @@ function Un(e, t, n) {
                   if (e)
                     for (var t in e)
                       o[t] = "string" == typeof e[t] ? e[t] : e[t].toString();
-                  var n = new C(function (t, n) {
+                  var n = new R(function (t, n) {
                     try {
                       o.db = openDatabase(
                         o.name,
@@ -1870,7 +1870,7 @@ function Un(e, t, n) {
                 _support: "function" == typeof openDatabase,
                 iterate: function (s, e) {
                   var t = this,
-                    n = new C(function (c, n) {
+                    n = new R(function (c, n) {
                       t.ready()
                         .then(function () {
                           var u = t._dbInfo;
@@ -1909,7 +1909,7 @@ function Un(e, t, n) {
                 getItem: function (t, e) {
                   var i = this;
                   t = p(t);
-                  var n = new C(function (o, n) {
+                  var n = new R(function (o, n) {
                     i.ready()
                       .then(function () {
                         var r = i._dbInfo;
@@ -1941,7 +1941,7 @@ function Un(e, t, n) {
                   return function a(u, e, c, s) {
                     var f = this;
                     u = p(u);
-                    var t = new C(function (o, i) {
+                    var t = new R(function (o, i) {
                       f.ready()
                         .then(function () {
                           void 0 === e && (e = null);
@@ -1987,7 +1987,7 @@ function Un(e, t, n) {
                 removeItem: function (o, e) {
                   var i = this;
                   o = p(o);
-                  var t = new C(function (n, r) {
+                  var t = new R(function (n, r) {
                     i.ready()
                       .then(function () {
                         var t = i._dbInfo;
@@ -2012,7 +2012,7 @@ function Un(e, t, n) {
                 },
                 clear: function (e) {
                   var o = this,
-                    t = new C(function (n, r) {
+                    t = new R(function (n, r) {
                       o.ready()
                         .then(function () {
                           var t = o._dbInfo;
@@ -2037,7 +2037,7 @@ function Un(e, t, n) {
                 },
                 length: function (e) {
                   var o = this,
-                    t = new C(function (r, n) {
+                    t = new R(function (r, n) {
                       o.ready()
                         .then(function () {
                           var t = o._dbInfo;
@@ -2063,7 +2063,7 @@ function Un(e, t, n) {
                 },
                 key: function (o, e) {
                   var i = this,
-                    t = new C(function (r, n) {
+                    t = new R(function (r, n) {
                       i.ready()
                         .then(function () {
                           var t = i._dbInfo;
@@ -2093,7 +2093,7 @@ function Un(e, t, n) {
                 },
                 keys: function (e) {
                   var r = this,
-                    t = new C(function (o, n) {
+                    t = new R(function (o, n) {
                       r.ready()
                         .then(function () {
                           var t = r._dbInfo;
@@ -2129,7 +2129,7 @@ function Un(e, t, n) {
                   return (
                     l(
                       (t = n.name
-                        ? new C(function (e) {
+                        ? new R(function (e) {
                             var t, i;
                             (t =
                               n.name === r.name
@@ -2139,7 +2139,7 @@ function Un(e, t, n) {
                                 ? e({ db: t, storeNames: [n.storeName] })
                                 : e(
                                     ((i = t),
-                                    new C(function (o, n) {
+                                    new R(function (o, n) {
                                       i.transaction(
                                         function (e) {
                                           e.executeSql(
@@ -2166,11 +2166,11 @@ function Un(e, t, n) {
                                     }))
                                   );
                           }).then(function (u) {
-                            return new C(function (i, a) {
+                            return new R(function (i, a) {
                               u.db.transaction(
                                 function (r) {
                                   function e(t) {
-                                    return new C(function (e, n) {
+                                    return new R(function (e, n) {
                                       r.executeSql(
                                         "DROP TABLE IF EXISTS " + t,
                                         [],
@@ -2189,7 +2189,7 @@ function Un(e, t, n) {
                                     n++
                                   )
                                     t.push(e(u.storeNames[n]));
-                                  C.all(t)
+                                  R.all(t)
                                     .then(function () {
                                       i();
                                     })
@@ -2203,7 +2203,7 @@ function Un(e, t, n) {
                               );
                             });
                           })
-                        : C.reject("Invalid arguments")),
+                        : R.reject("Invalid arguments")),
                       e
                     ),
                     t
@@ -2229,8 +2229,8 @@ function Un(e, t, n) {
                         return !0;
                       }
                     })() || 0 < localStorage.length
-                      ? (((this._dbInfo = t).serializer = W), C.resolve())
-                      : C.reject()
+                      ? (((this._dbInfo = t).serializer = W), R.resolve())
+                      : R.reject()
                   );
                 },
                 _support: (function () {
@@ -2285,7 +2285,7 @@ function Un(e, t, n) {
                   var n = u.ready().then(function () {
                     void 0 === e && (e = null);
                     var i = e;
-                    return new C(function (n, r) {
+                    return new R(function (n, r) {
                       var o = u._dbInfo;
                       o.serializer.serialize(e, function (e, t) {
                         if (t) r(t);
@@ -2379,7 +2379,7 @@ function Un(e, t, n) {
                   return (
                     l(
                       (r = t.name
-                        ? new C(function (e) {
+                        ? new R(function (e) {
                             t.storeName
                               ? e(S(t, o._defaultConfig))
                               : e(t.name + "/");
@@ -2392,7 +2392,7 @@ function Un(e, t, n) {
                               0 === (t = localStorage.key(n)).indexOf(e) &&
                                 localStorage.removeItem(t);
                           })
-                        : C.reject("Invalid arguments")),
+                        : R.reject("Invalid arguments")),
                       e
                     ),
                     r
@@ -2491,7 +2491,7 @@ function Un(e, t, n) {
                     );
                   }),
                   (o.prototype.defineDriver = function (s, e, t) {
-                    var n = new C(function (t, e) {
+                    var n = new R(function (t, e) {
                       try {
                         var n = s._driver,
                           r = new Error(
@@ -2517,7 +2517,7 @@ function Un(e, t, n) {
                                         n +
                                         " is not implemented by the current driver"
                                     ),
-                                    t = C.reject(e);
+                                    t = R.reject(e);
                                   return (
                                     l(t, arguments[arguments.length - 1]), t
                                   );
@@ -2553,12 +2553,12 @@ function Un(e, t, n) {
                   }),
                   (o.prototype.getDriver = function (e, t, n) {
                     var r = K[e]
-                      ? C.resolve(K[e])
-                      : C.reject(new Error("Driver not found."));
+                      ? R.resolve(K[e])
+                      : R.reject(new Error("Driver not found."));
                     return c(r, t, n), r;
                   }),
                   (o.prototype.getSerializer = function (e) {
-                    var t = C.resolve(W);
+                    var t = R.resolve(W);
                     return c(t, e), t;
                   }),
                   (o.prototype.ready = function (e) {
@@ -2588,9 +2588,9 @@ function Un(e, t, n) {
                     var r = this._getSupportedDrivers(e),
                       o =
                         null === this._driverSet
-                          ? C.resolve()
+                          ? R.resolve()
                           : this._driverSet.catch(function () {
-                              return C.resolve();
+                              return R.resolve();
                             });
                     return (
                       (this._driverSet = o
@@ -2623,7 +2623,7 @@ function Un(e, t, n) {
                                         "No available storage method found."
                                       );
                                       return (
-                                        (u._driverSet = C.reject(n)),
+                                        (u._driverSet = R.reject(n)),
                                         u._driverSet
                                       );
                                     })();
@@ -2636,7 +2636,7 @@ function Un(e, t, n) {
                           var e = new Error(
                             "No available storage method found."
                           );
-                          return (u._driverSet = C.reject(e)), u._driverSet;
+                          return (u._driverSet = R.reject(e)), u._driverSet;
                         })),
                       c(this._driverSet, t, n),
                       this._driverSet
@@ -2778,7 +2778,7 @@ function Un(e, t, n) {
         m = (e && e.__k) || je,
         y = m.length;
       if (
-        (c == Re && (c = null == a ? (y ? k(e, 0) : null) : a[0]),
+        (c == Ce && (c = null == a ? (y ? k(e, 0) : null) : a[0]),
         (f = 0),
         (r.__k = E(r.__k, function (e) {
           if (null != e) {
@@ -2797,7 +2797,7 @@ function Un(e, t, n) {
                 p = null;
               }
             if (
-              ((d = I(n, e, (p = p || Re), o, i, a, u, c, s)),
+              ((d = I(n, e, (p = p || Ce), o, i, a, u, c, s)),
               (l = e.ref) &&
                 p.ref != l &&
                 (_ || (_ = []),
@@ -2828,8 +2828,8 @@ function Un(e, t, n) {
         null != a && "function" != typeof r.type)
       )
         for (f = a.length; f--; ) null != a[f] && g(a[f]);
-      for (f = y; f--; ) null != m[f] && R(m[f], m[f]);
-      if (_) for (f = 0; f < _.length; f++) C(_[f], _[++f], _[++f]);
+      for (f = y; f--; ) null != m[f] && C(m[f], m[f]);
+      if (_) for (f = 0; f < _.length; f++) R(_[f], _[++f], _[++f]);
     }
     function E(e, t, n) {
       if ((null == n && (n = []), null == e || "boolean" == typeof e))
@@ -3040,11 +3040,11 @@ function Un(e, t, n) {
             else if (t !== n) {
               if (
                 (null != i && (i = je.slice.call(e.childNodes)),
-                (f = (d = n.props || Re).dangerouslySetInnerHTML),
+                (f = (d = n.props || Ce).dangerouslySetInnerHTML),
                 (l = h.dangerouslySetInnerHTML),
                 !u)
               ) {
-                if (d === Re)
+                if (d === Ce)
                   for (d = {}, p = 0; p < e.attributes.length; p++)
                     d[e.attributes[p].name] = e.attributes[p].value;
                 (l || f) &&
@@ -3062,7 +3062,7 @@ function Un(e, t, n) {
               })(e, h, d, o, u),
                 (t.__k = t.props.children),
                 l ||
-                  S(e, t, n, r, "foreignObject" !== t.type && o, i, a, Re, u),
+                  S(e, t, n, r, "foreignObject" !== t.type && o, i, a, Ce, u),
                 u ||
                   ("value" in h &&
                     void 0 !== h.value &&
@@ -3095,18 +3095,18 @@ function Un(e, t, n) {
           }
         });
     }
-    function C(e, t, n) {
+    function R(e, t, n) {
       try {
         "function" == typeof e ? e(t) : (e.current = t);
       } catch (e) {
         ee.__e(e, n);
       }
     }
-    function R(e, t, n) {
+    function C(e, t, n) {
       var r, o, i;
       if (
         (ee.unmount && ee.unmount(e),
-        (r = e.ref) && ((r.current && r.current !== e.__e) || C(r, null, t)),
+        (r = e.ref) && ((r.current && r.current !== e.__e) || R(r, null, t)),
         n || "function" == typeof e.type || (n = null != (o = e.__e)),
         (e.__e = e.__d = void 0),
         null != (r = e.__c))
@@ -3119,7 +3119,7 @@ function Un(e, t, n) {
           }
         r.base = r.__P = null;
       }
-      if ((r = e.__k)) for (i = 0; i < r.length; i++) r[i] && R(r[i], t, n);
+      if ((r = e.__k)) for (i = 0; i < r.length; i++) r[i] && C(r[i], t, n);
       null != o && g(o);
     }
     function j(e, t, n) {
@@ -3134,12 +3134,12 @@ function Un(e, t, n) {
         I(
           t,
           ((r ? t : n || t).__k = e),
-          o || Re,
-          Re,
+          o || Ce,
+          Ce,
           void 0 !== t.ownerSVGElement,
           n && !r ? [n] : o ? null : je.slice.call(t.childNodes),
           i,
-          n || Re,
+          n || Ce,
           r
         ),
         p(i, e);
@@ -3209,7 +3209,7 @@ function Un(e, t, n) {
       return (
         t.s &&
           t.s !== n &&
-          (t.v.parentNode && t.s.removeChild(t.v), R(t.h), (t.p = !1)),
+          (t.v.parentNode && t.s.removeChild(t.v), C(t.h), (t.p = !1)),
         e.vnode
           ? t.p
             ? ((n.__k = t.__k), d(r, n), (t.__k = n.__k))
@@ -3219,10 +3219,10 @@ function Un(e, t, n) {
               (t.p = !0),
               d(r, (t.s = n), t.v),
               (t.__k = t.v.__k))
-          : t.p && (t.v.parentNode && t.s.removeChild(t.v), R(t.h)),
+          : t.p && (t.v.parentNode && t.s.removeChild(t.v), C(t.h)),
         (t.h = r),
         (t.componentWillUnmount = function () {
-          t.v.parentNode && t.s.removeChild(t.v), R(t.h);
+          t.v.parentNode && t.s.removeChild(t.v), C(t.h);
         }),
         null
       );
@@ -4598,7 +4598,7 @@ function Un(e, t, n) {
             return n(Oe(e));
           });
       },
-      Ce = function (e, t) {
+      Re = function (e, t) {
         var n = e[0];
         (ve = _e()),
           de[6] &&
@@ -4646,7 +4646,7 @@ function Un(e, t, n) {
             return t(de);
           });
       },
-      Re = {},
+      Ce = {},
       je = [],
       Ne = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord/i;
     (ee = {
@@ -4688,7 +4688,7 @@ function Un(e, t, n) {
         "function" == typeof Promise
           ? Promise.prototype.then.bind(Promise.resolve())
           : setTimeout),
-      (ie = Re);
+      (ie = Ce);
     var Te,
       Ae,
       Pe,
@@ -5051,7 +5051,7 @@ function Un(e, t, n) {
             E = e.into,
             O = void 0 !== E && E,
             I = e.data,
-            C = U(e, [
+            R = U(e, [
               "active",
               "className",
               "wrapperClass",
@@ -5072,7 +5072,7 @@ function Un(e, t, n) {
               "data",
             ]);
           if (!n) return null;
-          var R = Ve(
+          var C = Ve(
               "smpl-ui smpl-layout",
               "type-" + p,
               (function (e, t) {
@@ -5095,13 +5095,13 @@ function Un(e, t, n) {
             j = f ? c || w : function () {},
             N = T(
               "div",
-              F({ className: o, style: { display: S ? "none" : "block" } }, C),
+              F({ className: o, style: { display: S ? "none" : "block" } }, R),
               T(
                 it,
                 { active: 5 === p && u, onClick: j },
                 T(
                   "div",
-                  { className: R },
+                  { className: C },
                   T(at, { active: 3 !== p && b, onClose: w }),
                   T(
                     ut,
@@ -5220,7 +5220,7 @@ function Un(e, t, n) {
           l: (window.navigator || {}).language,
           rh: window.innerHeight,
           rw: window.innerWidth,
-          pt: 1745825777,
+          pt: 1746394373,
         });
         vt("POST", "?t=3", r, n);
       },
@@ -5288,8 +5288,8 @@ function Un(e, t, n) {
         return yt("3.7-" + gt[9], Ut, []);
       },
       It = [1, 2, 3, 4, 5, 6, 7].concat([bt]),
-      Ct = [].concat(zn(It), [1, 2, ft, 4, 5]),
-      Rt = [].concat(zn(It), [7, 5, 8, 1, ft, lt]),
+      Rt = [].concat(zn(It), [1, 2, ft, 4, 5]),
+      Ct = [].concat(zn(It), [7, 5, 8, 1, ft, lt]),
       jt = [].concat(zn(It), [2]),
       Nt = [].concat(zn(It), [9, 10, 11, 12, 13]),
       Tt = [].concat(zn(It), [14]),
@@ -5348,7 +5348,7 @@ function Un(e, t, n) {
             e
           );
         };
-      }.apply(null, Ct),
+      }.apply(null, Rt),
       Dt = function (e, t, n, r, o, i, a, u, c, s, f, l, p, d) {
         return function () {
           var e;
@@ -5393,7 +5393,7 @@ function Un(e, t, n) {
               ),
               e);
         };
-      }.apply(null, Rt),
+      }.apply(null, Ct),
       Mt = function (e, t, n, r, o, i, a, u, c) {
         return function () {
           return u() != n
@@ -5453,7 +5453,7 @@ function Un(e, t, n) {
               ),
               e);
         };
-      }.apply(null, Rt),
+      }.apply(null, Ct),
       Bt = function (e, t, n, r, o, i, a, u, c, s, f, l, p) {
         return function () {
           return u() != r
@@ -5517,8 +5517,8 @@ function Un(e, t, n) {
         E,
         O,
         I,
-        C,
         R,
+        C,
         j,
         N,
         T,
@@ -6404,7 +6404,14 @@ function Un(e, t, n) {
           (n.id = "smpl-ui" + (t ? "-" + t : "")),
           document.body.appendChild(n);
       },
-      ln = { 2: ["New Empty Scenario1", { 1: "New Variation" }] },
+      ln = {
+        2: ["New Empty Scenario1", { 1: "New Variation" }],
+        16: ["Segment Test v9", {}],
+        17: ["Revenue Scenario", {}],
+        18: ["Revenue Scenario v2", {}],
+        19: ["Revenue Scenario v3", {}],
+        20: ["segment ruzgar", {}],
+      },
       pn = function (e, t) {
         var n,
           r,
@@ -6439,7 +6446,7 @@ function Un(e, t, n) {
               Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
           return e;
         },
-      hn = { 2: 1 },
+      hn = { 2: 1, 16: 1, 17: 1, 18: 1, 19: 1, 20: 1 },
       vn = {},
       _n = {},
       mn = {},
@@ -6651,7 +6658,7 @@ function Un(e, t, n) {
           })(t)
         );
       },
-      Sn = [2],
+      Sn = [2, 16, 17, 18, 19, 20],
       En = {
         2: [
           [
@@ -6686,8 +6693,8 @@ function Un(e, t, n) {
               E,
               O,
               I,
-              C,
               R,
+              C,
               j,
               N,
               T,
@@ -6710,7 +6717,7 @@ function Un(e, t, n) {
               return function (e, t, r, n) {
                 var o = !1;
                 O({ type: y }, function (e) {
-                  C(function (e) {
+                  R(function (e) {
                     console.log("new Config", e);
                   }),
                     I(function (e) {
@@ -6732,11 +6739,30 @@ function Un(e, t, n) {
             { controlVariation: !1, sendEvent: !1 },
           ],
         ],
+        16: [],
+        17: [],
+        18: [],
+        19: [],
+        20: [],
       },
-      On = { 2: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 } },
-      In = { 2: [0, [[1, 7, [15], 9, 8]], 0, 0, [[1, 1], [2, 3], !1]] },
-      Cn = [],
-      Rn = function (e) {
+      On = {
+        2: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+        16: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+        17: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+        18: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+        19: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+        20: { 0: [1, []], 1: 0, 2: 0, 3: 0, 4: 0 },
+      },
+      In = {
+        2: [0, [[1, 7, [15], 9, 8]], 0, 0, [[1, 1], [2, 3], !1]],
+        16: [0, [[1, 1, [2, 1], 5, [1, 2, 3]]], 0, 0, [[1, 1], [2, 3], !1]],
+        17: [0, [[1, 1, [2, 1], 5, [1, 2, 3]]], 0, 0, [[1, 1], [2, 3], !1]],
+        18: [0, [[1, 1, [2, 1], 5, [1, 2, 3]]], 0, 0, [[1, 1], [2, 3], !1]],
+        19: [0, [[1, 1, [2, 1], 5, [1, 2, 3]]], 0, 0, [[1, 1], [2, 3], !1]],
+        20: [0, [[1, 18, [3, 1], 7, "?kemalTest"]], 0, 0, [[1, 1], [2, 3], !1]],
+      },
+      Rn = [],
+      Cn = function (e) {
         bn(e, !1), pn(e, [3]);
       },
       jn = function (e, t) {
@@ -6747,7 +6773,7 @@ function Un(e, t, n) {
           var e = On[t][0],
             n = On[t][1],
             r = On[t][2];
-          Cn.push(t),
+          Rn.push(t),
             (function (e, t, n) {
               if (!e) return;
               var r,
@@ -6804,7 +6830,7 @@ function Un(e, t, n) {
                 pn(e, [2]),
                 r &&
                   setTimeout(function () {
-                    Rn(t);
+                    Cn(t);
                   }, 1e3 * r);
             });
         }),
@@ -6815,8 +6841,8 @@ function Un(e, t, n) {
         (t = function (e) {
           var n;
           (n = e),
-            Cn.forEach(function (e, t) {
-              -1 !== n.indexOf(e) || (Rn(e), Cn.splice(t, 1));
+            Rn.forEach(function (e, t) {
+              -1 !== n.indexOf(e) || (Cn(e), Rn.splice(t, 1));
             }),
             Nn(e, function () {
               xe();
@@ -6878,7 +6904,7 @@ function Un(e, t, n) {
       (e = [pt, "https", dt, "/storage.html"]),
         (n = function () {
           Qt(function (e) {
-            return Ce(e, t);
+            return Re(e, t);
           }),
             fn(
               ".smpl-ui{font-family:arial;font-size:14px;line-height:1em}.smpl-ui button,.smpl-ui input,.smpl-ui optgroup,.smpl-ui select,.smpl-ui textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}.smpl-ui.pos-v-0{top:0}.smpl-ui.pos-v-1{bottom:50%;transform:translate(0, 50%);margin-top:0 !important;margin-bottom:0 !important}.smpl-ui.pos-v-1.pos-h-1{transform:translate(50%, 50%)}.smpl-ui.pos-v-2{bottom:0}.smpl-ui.pos-h-0{left:0}.smpl-ui.pos-h-1{right:50%;transform:translate(50%, 0);margin-left:0 !important;margin-right:0 !important}.smpl-ui.pos-h-2{right:0}.smpl-ui.smpl-overlay{display:inline}.smpl-ui.smpl-overlay.active{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:11111111}.smpl-ui.smpl-layout{position:fixed;background-size:contain;background-repeat:no-repeat}.smpl-ui.smpl-layout.smpl-inline{position:relative;transform:initial;right:initial;top:initial;left:initial;bottom:initial}.smpl-ui.smpl-layout.type-0,.smpl-ui.smpl-layout.type-6{width:100%;position:initial;transform:initial}.smpl-ui.smpl-layout.type-1{width:100%}.smpl-ui.smpl-layout.type-2{width:400px}.smpl-ui.smpl-layout.type-2.size-1{width:300px}.smpl-ui.smpl-layout.type-2.size-3{width:500px}.smpl-ui.smpl-layout.type-3{width:60px}.smpl-ui.smpl-layout.type-3.size-1{width:45px}.smpl-ui.smpl-layout.type-3.size-3{width:90px}.smpl-ui.smpl-layout.type-4{width:250px}.smpl-ui.smpl-layout.type-4.pos-h-0{margin-left:60px}.smpl-ui.smpl-layout.type-4.pos-h-2{margin-right:60px}.smpl-ui.smpl-layout.type-4.size-1{width:200px}.smpl-ui.smpl-layout.type-4.size-3{width:320px}.smpl-ui.smpl-layout.type-5{width:450px}.smpl-ui.smpl-layout.type-5.size-1{width:300px}.smpl-ui.smpl-layout.type-5.size-3{width:600px}.smpl-ui.smpl-layout.type-5.size-4{width:100%}.smpl-ui.smpl-layout.type-3 .smpl-trigger{position:fixed;top:50%;left:0px;transform:rotate(90deg) translate(-50%, -100%);transform-origin:left top;font-size:25px;line-height:25px;background:#55bfa8;padding:10px 27px;padding-top:15px;border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;color:white;z-index:11111111}.smpl-ui.smpl-layout.type-3 .smpl-trigger:hover{filter:brightness(0.9)}.smpl-ui.smpl-layout.type-3.pos-h-2 .smpl-trigger{right:0;left:initial;transform:rotate(270deg) translate(50%, -100%);transform-origin:right top}.smpl-ui.smpl-container{display:block;box-sizing:border-box;padding:30px 20px;border-radius:0px;width:100%}.smpl-ui.smpl-close-cont{position:absolute;top:0px;right:0;overflow:hidden}.smpl-ui.smpl-close-cont .smpl-close{font-size:36px;line-height:38px;transform:rotate(45deg);width:35px;height:35px;text-align:center;color:#444;cursor:pointer;user-select:none}\n"
