@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import {
   selectCategoriesIsLoading,
   selectCategoriesMap,
-} from "../../store/categories/category.selector.js";
+} from "../../store/categories/category.selector";
 import { CategoryContainer, CategoryTitle } from "./category.styles.jsx";
 
 import ProductCard from "../../components/product-card/product-card.component";

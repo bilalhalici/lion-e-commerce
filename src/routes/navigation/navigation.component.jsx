@@ -16,6 +16,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
+  TitleContainer,
 } from "./navigation.styles.jsx";
 
 const Navigation = () => {
@@ -31,6 +32,9 @@ const Navigation = () => {
         <LogoContainer to="/">
           <Lion className="logo" />
         </LogoContainer>
+        <TitleContainer to="/">
+          LION CLOTHING
+        </TitleContainer>
         <NavLinks>
           <NavLink to="/shop">
             SHOP
