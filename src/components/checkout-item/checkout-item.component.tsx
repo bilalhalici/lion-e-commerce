@@ -13,9 +13,17 @@ import {
   Arrow,
   Value,
   RemoveButton
-} from './checkout-item.styles.jsx';
+} from './checkout-item.styles';
 
-const CheckoutItem = ({ cartItem }) => {
+type CartItem = {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+};
+
+const CheckoutItem = ({ cartItem } : { cartItem: CartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);

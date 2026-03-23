@@ -11,11 +11,12 @@ import {
   CheckoutHeader,
   HeaderBlock,
   Total,
-} from "./checkout.styles.jsx";
+} from "./checkout.styles";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+
 
   return (
     <CheckoutContainer>
@@ -40,7 +41,7 @@ const Checkout = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <Total>Total: ${cartTotal}</Total>
-      <PaymentForm price={cartTotal} />
+      <PaymentForm />
     </CheckoutContainer>
   );
 };

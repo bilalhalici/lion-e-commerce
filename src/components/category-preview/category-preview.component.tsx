@@ -4,9 +4,21 @@ import {
   CategoryPreviewContainer,
   Title,
   Preview,
-} from "./category-preview.styles.jsx";
+} from "./category-preview.styles";
 
-const CategoryPreview = ({ title, products }) => {
+type Product = {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+};
+
+type CategoryPreviews = {
+  title: string;
+  products: Product[];
+};
+
+const CategoryPreview = ({ title, products }: CategoryPreviews) => {
   return (
     <CategoryPreviewContainer>
       <h2>

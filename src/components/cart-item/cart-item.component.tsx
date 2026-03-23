@@ -4,9 +4,16 @@ import {
   ItemDetails,
   Name,
   Price
-} from './cart-item.styles.jsx';
+} from './cart-item.styles';
 
-const CartItem = ({ cartItem }) => {
+type CartItems = {
+  name: string;
+  imageUrl: string;
+  price: number;
+  quantity: number;
+};
+
+const CartItem = ({ cartItem }: { cartItem: CartItems }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   return (

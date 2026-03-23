@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { signOutStart } from "../../store/user/user.action";
+// @ts-ignore
 import { ReactComponent as Lion } from "../../assets/lion.svg";
 
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
@@ -17,7 +18,7 @@ import {
   NavLinks,
   NavLink,
   TitleContainer,
-} from "./navigation.styles.jsx";
+} from "./navigation.styles";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const Navigation = () => {
             SHOP
           </NavLink>
           {currentUser ? (
-            <NavLink as='span' onClick={signOutUser}>
+            <NavLink as='span' to='' onClick={signOutUser}>
               SIGN OUT
             </NavLink>
           ) : (
