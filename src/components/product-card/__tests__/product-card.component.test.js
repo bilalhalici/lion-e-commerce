@@ -3,7 +3,7 @@ import { renderWithProviders } from "../../../utils/test/test.utils";
 import ProductCard from "../product-card.component";
 
 describe("Product Card tests", () => {
-  test('it should add the product item when Product Card button is clicked', async () => {
+  test('it should add the product item when Product Card button is clicked', () => {
     const mockProduct = {
       id: 1,
       imageUrl: 'test',
@@ -20,7 +20,7 @@ describe("Product Card tests", () => {
     });
 
     const addToCartButtonElement = screen.getByText(/add to cart/i);
-    await fireEvent.click(addToCartButtonElement);
+    fireEvent.click(addToCartButtonElement);
 
     expect(store.getState().cart.cartItems.length).toBe(1);
   });
