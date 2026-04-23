@@ -1,6 +1,8 @@
 import { call } from 'typed-redux-saga/macro';
 import { expectSaga, testSaga } from 'redux-saga-test-plan';
 import { throwError } from 'redux-saga-test-plan/providers';
+import * as matchers from 'redux-saga-test-plan/matchers';
+
 import {
   fetchCategoriesAsync,
   onFetchCategories,
@@ -11,7 +13,7 @@ import {
   fetchCategoriesFailed,
 } from '../category.action';
 import { CATEGORIES_ACTION_TYPES } from '../category.types';
-import { getCategoriesAndDocuments } from '../../..//utils/firebase/firebase.util';
+import { getCategoriesAndDocuments } from '../../../utils/firebase/firebase.util';
 
 const mockCategoriesArray = [
   { id: 1, name: 'Category 1' },
@@ -40,7 +42,9 @@ describe('category sagas', () => {
 
   test('fetchCategoriesAsync success', () => {
     return expectSaga(fetchCategoriesAsync)
-      .provide([[call(getCategoriesAndDocuments), mockCategoriesArray]])
+      .provide([
+        [matchers.call.fn(getCategoriesAndDocuments), mockCategoriesArray]
+      ])
       .put(fetchCategoriesSuccess(mockCategoriesArray))
       .run();
   });
@@ -48,7 +52,9 @@ describe('category sagas', () => {
   test('fetchCategoriesAsync failure', () => {
     const error = new Error('An error occurred');
     return expectSaga(fetchCategoriesAsync)
-      .provide([[call(getCategoriesAndDocuments), throwError(error)]])
+      .provide([
+        [matchers.call.fn(getCategoriesAndDocuments), throwError(error)]
+      ])
       .put(fetchCategoriesFailed(error))
       .run();
   });
